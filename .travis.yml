@@ -13,3 +13,14 @@ env:
 
 script:
   - python manage.py test
+
+deploy:
+  provider: heroku
+  api_key:
+  secure: "fc7d61b0-c983-4817-a0ff-557b770e9350"
+  on:
+    branch: development
+  run:
+    - sleep 300
+    - "python manage.py migrate"
+    - "python manage.py runserver"
