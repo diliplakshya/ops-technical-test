@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.6" # 3.5 development branch
+
+# command to install dependencies
+install:
+  - pip install -r development_requirements.txt
+
+# command to run tests
+# To Be Done
+env:
+  - DB=sqlite3
