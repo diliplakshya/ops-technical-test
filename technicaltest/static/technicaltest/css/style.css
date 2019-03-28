@@ -1,0 +1,9 @@
+body {
+    background: white;
+}
+
+.background_image {
+    background-color: yellow;
+    width: auto;
+    height: auto;
+}

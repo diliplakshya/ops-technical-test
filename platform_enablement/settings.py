@@ -25,7 +25,7 @@ SECRET_KEY = '_5w_op-p_8c%j7ovh&2qu@i01uz9c#gq!za3@-ob5*nwqx5c5c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ops-technical-test.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ops-technical-test.herokuapp.com']
 
 
 # Application definition
@@ -125,10 +125,9 @@ if 'HEROKU' in os.environ:
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
