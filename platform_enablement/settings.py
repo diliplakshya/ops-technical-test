@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'technicaltest',
+    'rest_framework', # Django REST API framework
 ]
 
 MIDDLEWARE = [
@@ -124,10 +125,10 @@ if 'HEROKU' in os.environ:
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
+'''
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
+'''
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

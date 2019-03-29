@@ -8,15 +8,13 @@
     <link rel="stylesheet" href="{% static 'technicaltest/css/style.css' %}"
   </head>
   <body>
-    <h1>MYOB Platform Enablement Technical Test Web Application</h1>
+    <h1>About Application</h1>
     <p>
       <ul>
-        <li><strong>{{home.display_text}}</strong></li>
-        <li><strong>Dilip Kumar</strong></li>
+        <li>App Version     :     <strong>{{meta_data.version}}</strong></li>
+        <li>Description     :     <strong>{{meta_data.description}}</strong></li>
+        <li>Last Commit SHA :     <strong>{{meta_data.lastcommitsha}}</strong></li>
       </ul>
     </p>
-    <div>
-      <img src="{% static 'technicaltest/images/myob.jpg' %}" alt="MYOB" class="background_image">
-    </div>
   </body>
 </html>
