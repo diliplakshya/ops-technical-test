@@ -75,19 +75,7 @@ WSGI_APPLICATION = 'platform_enablement.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-if 'HEROKU' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'deiun6adlh1k5',
-            'USER': 'sfegvhkwpwsmzk',
-            'PASSWORD': '25c71e150cca9d9c00de84836a7be9099019fec7b2bcc6ab118ec044dd6fa875',
-            'HOST': 'ec2-79-125-2-142.eu-west-1.compute.amazonaws.com',
-            'PORT': '5432',
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -142,3 +130,8 @@ STATICFILES_DIRS = [
 '''
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
