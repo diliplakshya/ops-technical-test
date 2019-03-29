@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 from . import api_views
 
+
 urlpatterns = [
     path('', views.view_home, name='Home View'),
     path('about/', views.view_meta_data, name='Meta Data View'),

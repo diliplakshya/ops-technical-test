@@ -23,10 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_5w_op-p_8c%j7ovh&2qu@i01uz9c#gq!za3@-ob5*nwqx5c5c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ops-technical-test.herokuapp.com']
-
 
 # Application definition
 
@@ -132,6 +131,10 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+if 'HEROKU' in os.environ:
+    import dj_database_url
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+
+# Git Hub rest api url to get last commit
+GITHUB_API_URL = r'https://api.github.com/repos/diliplakshya/ops-technical-test/commits/development'
