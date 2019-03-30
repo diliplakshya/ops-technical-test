@@ -1,16 +1,12 @@
 language: python
 python:
-  - "3.6" # 3.5 development branch
+  - "3.6"
 
 # command to install dependencies
 install:
   - pip install -r requirements.txt
 
 # command to run tests
-# To Be Done
-env:
-  - DB=sqlite3
-
 script:
   - python manage.py test
 
