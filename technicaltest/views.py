@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.conf import settings
 from technicaltest.models import Home, MetaData
 import requests
-import json
 
 
 def view_home(request):
@@ -26,5 +25,5 @@ def view_meta_data(request):
         meta_data.commit_message = response.json()['commit']['message']
 
     meta_data.save()
-    
+
     return render(request, 'technicaltest/about.html', {"meta_data":MetaData.objects.last()})
