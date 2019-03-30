@@ -18,14 +18,21 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from technicaltest.error_views import ErrorViews
+from technicaltest.application_response_views import ApplicationResponseViews
 
-
-handler400 = ErrorViews.error_handler_400
-handler404 = ErrorViews.error_handler_404
-handler405 = ErrorViews.error_handler_405
-handler500 = ErrorViews.error_handler_500
-handler503 = ErrorViews.error_handler_503
+handler200 = ApplicationResponseViews.response_handler_200
+handler204 = ApplicationResponseViews.response_handler_204
+handler400 = ApplicationResponseViews.response_handler_400
+handler403 = ApplicationResponseViews.response_handler_403
+handler404 = ApplicationResponseViews.response_handler_404
+handler405 = ApplicationResponseViews.response_handler_405
+handler408 = ApplicationResponseViews.response_handler_408
+handler429 = ApplicationResponseViews.response_handler_429
+handler500 = ApplicationResponseViews.response_handler_500
+handler501 = ApplicationResponseViews.response_handler_501
+handler502 = ApplicationResponseViews.response_handler_502
+handler503 = ApplicationResponseViews.response_handler_503
+handler504 = ApplicationResponseViews.response_handler_504
 
 
 urlpatterns = [

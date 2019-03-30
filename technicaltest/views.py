@@ -16,13 +16,21 @@ def view_meta_data(request):
 
     # read last commit from github
     lastcommitsha = "abcd1234"
+    commit_message = str()
     response = requests.get(settings.GITHUB_API_URL)
+
+    meta_data = MetaData()
+    meta_data.version = '0.0'
+    meta_data.description = 'MYOB Pre Interview technical Test'
 
     if(response.ok):
         response_data = json.loads(response.content)
         lastcommitsha = response_data['sha']
+        commit_message = response_data['commit']['message']
 
-    meta_data = MetaData(version='1.0', description='MYOB Pre Interview technical Test', lastcommitsha=lastcommitsha)
+        meta_data.last_commit_sha = response_data['sha']
+        meta_data.commit_message = response_data['commit']['message']
+
     meta_data.save()
 
     meta_data = MetaData.objects.last()

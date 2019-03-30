@@ -6,4 +6,5 @@ class Home(models.Model):
 class MetaData(models.Model):
     version = models.CharField(max_length=10)
     description = models.TextField()
-    lastcommitsha = models.CharField(max_length=50, blank=True)
+    last_commit_sha = models.CharField(max_length=50, blank=True)
+    commit_message = models.CharField(max_length=200, default='Code Commit')

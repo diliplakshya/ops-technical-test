@@ -15,4 +15,4 @@ class MetaDataSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = MetaData
-        fields = ('version', 'description', 'lastcommitsha')
+        fields = ('version', 'description', 'last_commit_sha', 'commit_message')
