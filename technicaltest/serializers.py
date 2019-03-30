@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.renderers import JSONRenderer
 from technicaltest.models import Home, MetaData
 
 class HomeSerializer(serializers.ModelSerializer):
@@ -16,3 +17,5 @@ class MetaDataSerializer(serializers.ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
         model = MetaData
         fields = ('version', 'description', 'last_commit_sha', 'commit_message')
+        renderer = JSONRenderer()
+        renderer.render(fields)

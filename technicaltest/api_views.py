@@ -7,6 +7,7 @@ class HomeList(ListAPIView):
     queryset = Home.objects.all()
     serializer_class = HomeSerializer
 
+
 class MetaDataList(ListAPIView):
     """Application Metadata"""
     queryset = MetaData.objects.all()
