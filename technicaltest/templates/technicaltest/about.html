@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
+{% extends "technicaltest/base.html" %}
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, intial scale=1.0">
-    <title>MYOB Technical Test</title>
-    <link rel="stylesheet" href="{% static 'technicaltest/css/style.css' %}"
-  </head>
   <body>
-    <h1>About Application</h1>
+    {% block content %}
     <p>
       <ul>
         <li>App Version     :     <strong>{{meta_data.version}}</strong></li>
@@ -17,5 +10,6 @@
         <li>Last Commit Msg :     <strong>{{meta_data.commit_message}}</strong></li>
       </ul>
     </p>
+    {% endblock %}
   </body>
 </html>

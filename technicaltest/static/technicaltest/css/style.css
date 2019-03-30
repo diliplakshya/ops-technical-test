@@ -1,9 +1,5 @@
-body {
-    background: white;
-}
-
 .background_image {
     background-color: yellow;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }

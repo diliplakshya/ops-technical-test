@@ -1,14 +1,8 @@
-<!DOCTYPE html>
+{% extends "technicaltest/base.html" %}
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, intial scale=1.0">
-    <title>MYOB Technical Test</title>
-    <link rel="stylesheet" href="{% static 'technicaltest/css/style.css' %}"
-  </head>
   <body>
-    <h1>MYOB Platform Enablement Technical Test Web Application</h1>
+    {% block content %}
     <p>
       <ul>
         <li><strong>{{home.display_text}}</strong></li>
@@ -16,7 +10,8 @@
       </ul>
     </p>
     <div>
-      <img src="{% static 'technicaltest/images/myob.jpg' %}" alt="MYOB" class="background_image">
+      <img src="{% static 'technicaltest/images/myob.jpg' %}" alt="MYOB" style="background-color:yellow;">
     </div>
+    {% endblock %}
   </body>
 </html>
