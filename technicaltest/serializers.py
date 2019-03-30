@@ -9,7 +9,9 @@ class HomeSerializer(serializers.ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
         model = Home
         fields = ('display_text',)
-
+        renderer = JSONRenderer()
+        renderer.render(fields)
+        
 class MetaDataSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 
