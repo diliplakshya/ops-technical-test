@@ -131,10 +131,10 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Heroku: Update database configuration from $DATABASE_URL.
-if 'HEROKU' in os.environ:
-    import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+# if 'HEROKU' in os.environ:
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Git Hub rest api url to get last commit
 GITHUB_API_URL = r'https://api.github.com/repos/diliplakshya/ops-technical-test/commits/development'
