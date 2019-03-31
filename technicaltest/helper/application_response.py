@@ -19,5 +19,5 @@ class ApplicationResponse(object):
         return self._message
 
     @message.setter
-    def message(self, code):
+    def message(self, message):
         self._message = message

@@ -8,15 +8,15 @@ class CommitInfoTests(TestCase):
     def setUpTestData(cls):
         cls.commit_info = CommitInfo()
 
-    def test_get_response_ok_setter_getter(self):
+    def test_response_ok_setter_getter(self):
         CommitInfoTests.commit_info.response_ok = True                      # Property setter method is called
         self.assertEquals(CommitInfoTests.commit_info.response_ok, True)    # Property getter method is called
 
-    def test_get_last_commit_sha_setter_getter(self):
+    def test_last_commit_sha_setter_getter(self):
         CommitInfoTests.commit_info.last_commit_sha = "a1b2c3d4"                      # Property setter method is called
         self.assertEquals(CommitInfoTests.commit_info.last_commit_sha, "a1b2c3d4")    # Property getter method is called
 
-    def test_get_commit_message_setter_getter(self):
+    def test_commit_message_setter_getter(self):
         CommitInfoTests.commit_info.commit_message = "new code commit"                      # Property setter method is called
         self.assertEquals(CommitInfoTests.commit_info.commit_message, "new code commit")    # Property getter method is called
 
