@@ -1,12 +1,12 @@
 from django.urls import path
 
-from . import views
+from technicaltest.views import ViewHome, ViewMetaData
 from . import api_views
 
 
 urlpatterns = [
-    path('home/', views.view_home, name='Home View'),
-    path('about/', views.view_meta_data, name='Meta Data View'),
-    path('', api_views.HomeList.as_view(), name='API Home View'),
-    path('metadata/', api_views.MetaDataList.as_view(), name='Meta Data View'),
+    path('', ViewHome.view_home, name='Home View'),
+    path('metadata/', ViewMetaData.view_meta_data, name='Meta Data View'),
+    path('api/', api_views.HomeList.as_view(), name='API Home View'),
+    path('api/metadata/', api_views.MetaDataList.as_view(), name='API Meta Data View'),
 ]
