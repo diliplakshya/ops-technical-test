@@ -10,9 +10,8 @@ from technicaltest.serializers import HomeSerializer, MetaDataSerializer
 
 
 class HomeViewTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.home = Home.objects.create(display_text = 'abcd')
+    def setUp(self):
+        Home.objects.create(display_text = 'abcd')
 
     def test_home_view_ok_response(self):
         self.assertEquals(self.client.get(reverse('Home View')).status_code, status.HTTP_200_OK)
@@ -21,7 +20,10 @@ class HomeViewTests(TestCase):
         self.assertTemplateUsed(self.client.get(reverse('Home View')), 'technicaltest/home.html')
 
     def test_home_view_contains_response(self):
-        self.assertContains(self.client.get(reverse('Home View')), HomeViewTests.home.display_text)
+        self.assertContains(self.client.get(reverse('Home View')), Home.objects.last().display_text)
+
+    def tearDown(self):
+        MetaData.objects.all().delete()
 
 class MetaDataViewTests(TestCase):
     def setUp(self):
