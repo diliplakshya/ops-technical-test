@@ -14,13 +14,5 @@ deploy:
   provider: heroku
   api_key:
     secure: "fc7d61b0-c983-4817-a0ff-557b770e9350"
-
-# blocklist
-branches:
-  - master
-  - development
-
-# safelist
-branches:
-  only:
-  - production
+  on:
+    branch: production
