@@ -8,6 +8,8 @@ from technicaltest.helper.commit_info import CommitInfo
 class ViewHome:
     @classmethod
     def view_home(cls, request):
+        Home.objects.all().delete()
+        Home.objects.create(display_text="MYOB Web App")
         return render(request, 'technicaltest/home.html', {"home":Home.objects.last()})
 
 # Home Ends
