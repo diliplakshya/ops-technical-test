@@ -131,11 +131,12 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Heroku: Update database configuration from $DATABASE_URL.
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Git Hub rest api url to get last commit
 GITHUB_API_URL = r'https://api.github.com/repos/diliplakshya/ops-technical-test/commits/development'
-GITHUB_AUTH_TOKEN = '200bf295bbcb7ab472215d457e11d6e0a1902b07'
 
 # Django deployment checklist
 SECURE_CONTENT_TYPE_NOSNIFF = True

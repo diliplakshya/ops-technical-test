@@ -27,7 +27,7 @@ class ViewMetaData:
         commit_info = CommitInfo()
 
         try:
-            commit_info.fetch_commit_info(settings.GITHUB_API_URL, settings.GITHUB_AUTH_TOKEN)
+            commit_info.fetch_commit_info(settings.GITHUB_API_URL)
 
             if(commit_info.response_ok):
                 meta_data.last_commit_sha = commit_info.last_commit_sha

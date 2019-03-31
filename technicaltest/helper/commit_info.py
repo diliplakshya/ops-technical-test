@@ -31,11 +31,11 @@ class CommitInfo:
     def commit_message(self, commit_message):
         self.__commit_message = commit_message
 
-    def fetch_commit_info(self, url, token):
+    def fetch_commit_info(self, url):
         # read last commit from github
         response = None
         try:
-            response = requests.get(url, headers={'Authorization': 'TOK:{}'.format(token)})
+            response = requests.get(url)
         except requests.exceptions.MissingSchema as error:
             raise(ValueError(str(error)))
 
