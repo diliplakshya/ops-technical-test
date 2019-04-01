@@ -13,14 +13,11 @@ class ApplicationResponseHandlerTests(TestCase):
     def setUpTestData(cls):
         Client().post('/invalid/url')
 
-    def test_application_response_ok_response(self):
-        self.assertRaises(Http404)
-
-    def test_application_response_uses_correct_template(self):
-        self.assertTemplateUsed(Client().get('/invalid/url'), 'technicaltest/response/response.html')
-
-    def test_application_response_contains_response(self):
-        self.assertContains(Client().get('/invalid/url'), "MYOB Application Error. Resource Not Found.", status_code = 404)
+    def test_application_response_200_returns_correct_http_code(self):
+        self.assertEquals(Client().get('//').status_code, ApplicationResponseHandler.HTTP_200)
+        self.assertEquals(Client().get('/api/').status_code, ApplicationResponseHandler.HTTP_200)
+        self.assertEquals(Client().get('/metadata/').status_code, ApplicationResponseHandler.HTTP_200)
+        self.assertEquals(Client().get('/api/metadata/').status_code, ApplicationResponseHandler.HTTP_200)
 
     def test_application_response_200_uses_correct_template(self):
         self.assertTemplateUsed(Client().get('//'), 'technicaltest/header.html')
@@ -31,3 +28,12 @@ class ApplicationResponseHandlerTests(TestCase):
         self.assertTemplateUsed(Client().get('/metadata/'), 'technicaltest/footer.html')
         self.assertTemplateUsed(Client().get('/metadata/'), 'technicaltest/base.html')
         self.assertTemplateUsed(Client().get('/metadata/'), 'technicaltest/about.html')
+
+    def test_application_response_contains_response(self):
+        self.assertContains(Client().get('/invalid/url'), ApplicationResponseHandler.http404.message, status_code = ApplicationResponseHandler.HTTP_404)
+
+    def test_application_response_uses_correct_template(self):
+        self.assertTemplateUsed(Client().get('/invalid/url'), 'technicaltest/response/response.html')
+
+    def test_application_response_404(self):
+        self.assertRaises(Http404)
