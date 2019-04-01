@@ -9,7 +9,7 @@ from django.db import models
 
 class Home(models.Model):
     """
-    Creates database table for Home View.
+    This class creates database table for Home View.
     @display_text: To display text on home page.
     """
     display_text = models.CharField(max_length=200)
