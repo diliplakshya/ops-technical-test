@@ -1,3 +1,7 @@
+# This is configuration file used by Travis CI to install dependencies,
+# run unit tests and deploy builds to 'heroku'.
+
+
 language: python
 python:
   - "3.6"

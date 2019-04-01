@@ -1,9 +1,17 @@
+"""
+This module contains the unit tests for application_response.py module.
+"""
+
+
 from django.test import TestCase
 from django.urls import reverse
 from technicaltest.helper.application_response import ApplicationResponse
 
 
 class ApplicationResponseTests(TestCase):
+    """
+    Unit tests for ApplicationResponse class.
+    """
     @classmethod
     def setUpTestData(cls):
         cls.application_response = ApplicationResponse(200, 'Error Message')

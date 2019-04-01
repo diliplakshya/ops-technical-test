@@ -1,10 +1,19 @@
+"""
+This module returns the Custom HTTP message for standard django HTTP error codes.
+This module is used by urls.py to redirect any http request is recieved from client.
+This module calls ApplicationResponse to set and get error code and message
+"""
+
+
 from django.shortcuts import render
 from technicaltest.helper.application_response import ApplicationResponse
 from collections import namedtuple
 
 
 class ApplicationResponseHandler(object):
-    """Custom ApplicationResponseHandler"""
+    """
+    Class for Custom HTTP message for standard django HTTP error codes.
+    """
 
     HTTP_200 = 200
     HTTP_204 = 204
@@ -40,60 +49,132 @@ class ApplicationResponseHandler(object):
                                     http500, http501, http502, http503, http504])
 
     def __init__(self):
+        """
+        Class Ctor.
+        """
         super(ApplicationResponseHandler, self).__init__()
 
     @classmethod
     def response_handler(cls, request, application_response):
+        """
+        Returns the template 'response.html' with custom message on receiving the request.
+        This will be called by specific error code methods.
+        """
         return render(request, 'technicaltest/response/response.html', {"error" : application_response}, status = application_response.code)
 
     @classmethod
     def response_handler_200(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 200 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http200)
 
     @classmethod
     def response_handler_204(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 204 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http204)
 
     @classmethod
     def response_handler_400(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 400 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http400)
 
     @classmethod
     def response_handler_403(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 403 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http403)
 
     @classmethod
     def response_handler_404(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 404 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http404)
 
     @classmethod
     def response_handler_405(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 405 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http405)
 
     @classmethod
     def response_handler_408(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 408 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http408)
 
     @classmethod
     def response_handler_429(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 429 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http429)
 
     @classmethod
     def response_handler_500(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 500 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http500)
 
     @classmethod
     def response_handler_501(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 501 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http501)
 
     @classmethod
     def response_handler_502(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 502 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http502)
 
     @classmethod
     def response_handler_503(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 503 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http503)
 
     @classmethod
     def response_handler_504(cls, request, exception=None):
+        """
+        This method sets error code to HTTP 504 and calls response_handler() to
+        get the Http response.
+        This will be called by urls.py module for specific error code.
+        """
         return cls.response_handler(request, cls.response_codes.http504)

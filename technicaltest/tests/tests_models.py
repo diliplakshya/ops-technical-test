@@ -1,8 +1,16 @@
+"""
+This module contains the unit tests for Models.
+"""
+
+
 from django.test import TestCase
 from technicaltest.models import Home, MetaData
 
 
 class HomeModelTest(TestCase):
+    """
+    Unit tests for Home Model.
+    """
     @classmethod
     def setUpTestData(cls):
         # Set up non-modified objects used by all test methods
@@ -26,6 +34,9 @@ class HomeModelTest(TestCase):
 
 
 class MetaDataModelTest(TestCase):
+    """
+    Unit tests for Meta Data Model.
+    """
     @classmethod
     def setUpTestData(self):
         # Set up non-modified objects used by all test methods

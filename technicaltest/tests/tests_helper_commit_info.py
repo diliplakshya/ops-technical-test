@@ -1,9 +1,17 @@
+"""
+This module contains the unit tests for commit_info.py module.
+"""
+
+
 from django.test import TestCase
 from django.conf import settings
 from technicaltest.helper.commit_info import CommitInfo
 
 
 class CommitInfoTests(TestCase):
+    """
+    Unit tests for commit_info.py module.
+    """
     @classmethod
     def setUpTestData(cls):
         cls.commit_info = CommitInfo()

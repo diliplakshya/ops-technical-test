@@ -1,3 +1,8 @@
+"""
+This module contains the unit tests for application_response_handler.py module.
+"""
+
+
 from django.test import TestCase
 from django.urls import reverse
 from django.test import Client
@@ -7,8 +12,9 @@ from django.http.response import Http404
 
 
 class ApplicationResponseHandlerTests(TestCase):
-    # application_response = ApplicationResponse(404, "Test Error Message")
-
+    """
+    Unit tests for ApplicationResponseHandler class.
+    """
     @classmethod
     def setUpTestData(cls):
         Client().post('/invalid/url')
