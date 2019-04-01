@@ -1,7 +1,7 @@
 class ApplicationResponse(object):
     """Custom Application Response Code And Messages"""
 
-    def __init__(self, code, message):
+    def __init__(self, code = None, message = None):
         super(ApplicationResponse, self).__init__()
         self._code = code
         self._message = message
