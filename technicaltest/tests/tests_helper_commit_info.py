@@ -32,7 +32,3 @@ class CommitInfoTests(TestCase):
         url = "inavlid_url"
 
         with self.assertRaises(ValueError): CommitInfoTests.commit_info.fetch_commit_info(url)()
-
-    def test_fetch_commit_info_response_ok_on_valid_url_and_token(self):
-        CommitInfoTests.commit_info.fetch_commit_info(settings.GITHUB_API_URL)
-        self.assertTrue(CommitInfoTests.commit_info.response_ok)
